@@ -43,6 +43,10 @@
   color: #666666;
   font-weight: bold;
 }
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
 
 .content address {
   margin: 0.5rem 0;

@@ -21,26 +21,28 @@ export default function EventItem({ title, image, date, location, id }) {
   return (
     <li className={classes.item}>
       <img src={"/" + image} alt={title} />
-      <div className={classes.content}>
-        <div className={classes.summary}>
-          <h2>{title}</h2>
+      <div className={classes.contentContainer}>
+        <div className={classes.content}>
+          <div className={classes.summary}>
+            <h2>{title}</h2>
+          </div>
+          <div className={classes.date}>
+            <time>{readableDate}</time>
+            <DateIcon />
+          </div>
+          <div className={classes.address}>
+            <address>{formattedAddress}</address>
+            <AddressIcon />
+          </div>
         </div>
-        <div className={classes.date}>
-          <time>{readableDate}</time>
-          <DateIcon />
+        <div className={classes.actions}>
+          <Button link={exploreLink}>
+            <span>Explore Event</span>
+            <span className={classes.icon}>
+              <ArrowRightIcon />
+            </span>
+          </Button>
         </div>
-        <div className={classes.address}>
-          <address>{formattedAddress}</address>
-          <AddressIcon />
-        </div>
-      </div>
-      <div className={classes.actions}>
-        <Button link={exploreLink}>
-          <span>Explore Event</span>
-          <span className={classes.icon}>
-            <ArrowRightIcon />
-          </span>
-        </Button>
       </div>
     </li>
   );

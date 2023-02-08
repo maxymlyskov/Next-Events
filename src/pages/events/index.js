@@ -1,13 +1,14 @@
 import EventList from "@/components/events/event-list";
-import { getFeaturedEvents } from "@/dummy-data";
+import EventsSearch from "@/components/events/events-search";
+import { getAllEvents, getFeaturedEvents } from "@/dummy-data";
 import React from "react";
 
 export default function AllEventsPage() {
-  const featuredEvents = getFeaturedEvents();
+  const allEvents = getAllEvents();
   return (
     <div>
-      <EventList items={featuredEvents} />
+      <EventsSearch />
+      <EventList items={allEvents} />
     </div>
   );
 }
-``;
