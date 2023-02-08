@@ -15,6 +15,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
+  console.log("regenearting");
   const filePath = path.join(
     process.cwd(),
     "src",
@@ -28,5 +29,6 @@ export async function getStaticProps() {
     props: {
       products: data.products,
     },
+    revalidate: 10,
   };
 }
