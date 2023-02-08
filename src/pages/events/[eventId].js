@@ -1,6 +1,7 @@
 import EventContent from "@/components/event-detail/event-content";
 import EventLogistics from "@/components/event-detail/event-logistics";
 import EventSummary from "@/components/event-detail/event-summary";
+import ErrorAlert from "@/components/ui/error-alert";
 import { getEventById } from "@/dummy-data";
 import { useRouter } from "next/router";
 import React from "react";
@@ -11,7 +12,12 @@ export default function EventPage() {
   const eventId = router.query.eventId;
   const event = getEventById(eventId);
 
-  if (!event) return <h1>Event Detail</h1>;
+  if (!event)
+    return (
+      <ErrorAlert>
+        <h1>Event Detail</h1>
+      </ErrorAlert>
+    );
 
   return (
     <>
