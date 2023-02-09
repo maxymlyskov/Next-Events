@@ -7,6 +7,7 @@ import EventList from "@/components/events/event-list";
 import ResultsTitle from "@/components/events/results-title";
 import Button from "@/components/ui/button";
 import ErrorAlert from "@/components/ui/error-alert";
+import Head from "next/head";
 
 export default function FilteredEventsPage(props) {
   const router = useRouter();
@@ -46,6 +47,10 @@ export default function FilteredEventsPage(props) {
   const date = new Date(props.date.year, props.date.month - 1);
   return (
     <>
+      <Head>
+        <title>Filtered Events</title>
+        <meta description={`All event for ${month}/${year} `} />
+      </Head>
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </>

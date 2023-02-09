@@ -1,6 +1,7 @@
 import EventList from "@/components/events/event-list";
 import EventsSearch from "@/components/events/events-search";
 import { getAllEvents } from "@/helpers/api-util";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -16,6 +17,13 @@ export default function AllEventsPage(props) {
   }
   return (
     <div>
+      <Head>
+        <title>NextJS Events</title>
+        <meta
+          name="description"
+          content="A lot of great events that elps you to evolve"
+        />
+      </Head>
       <EventsSearch onSearch={findEventsHandler} />
       <EventList items={allEvents} />
     </div>

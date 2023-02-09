@@ -3,6 +3,7 @@ import EventLogistics from "@/components/event-detail/event-logistics";
 import EventSummary from "@/components/event-detail/event-summary";
 import ErrorAlert from "@/components/ui/error-alert";
 import { getEventById, getFeaturedEvents } from "@/helpers/api-util";
+import Head from "next/head";
 
 export default function EventPage(props) {
   const event = props.event;
@@ -16,6 +17,10 @@ export default function EventPage(props) {
 
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta description={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
