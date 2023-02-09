@@ -8,19 +8,24 @@ import Head from "next/head";
 export default function EventPage(props) {
   const event = props.event;
 
+  const pageHeadData = (
+    <Head>
+      <title>{event.title}</title>
+      <meta description={event.description} />
+    </Head>
+  );
+
   if (!event)
     return (
       <div className="center">
+        {pageHeadData}
         <h1>Loading...</h1>
       </div>
     );
 
   return (
     <>
-      <Head>
-        <title>{event.title}</title>
-        <meta description={event.description} />
-      </Head>
+      {pageHeadData}
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}

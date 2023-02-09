@@ -15,15 +15,20 @@ export default function AllEventsPage(props) {
 
     router.push(fullPath);
   }
+
+  const pageHeadData = (
+    <Head>
+      <title>NextJS Events</title>
+      <meta
+        name="description"
+        content="A lot of great events that elps you to evolve"
+      />
+    </Head>
+  );
   return (
     <div>
-      <Head>
-        <title>NextJS Events</title>
-        <meta
-          name="description"
-          content="A lot of great events that elps you to evolve"
-        />
-      </Head>
+      {pageHeadData}
+
       <EventsSearch onSearch={findEventsHandler} />
       <EventList items={allEvents} />
     </div>

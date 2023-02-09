@@ -21,22 +21,30 @@ export default function FilteredEventsPage(props) {
 
   // const numYear = +filteredYear;
   // const numMonth = +filteredMonth;
-
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        description={`All event for ${props.date.month}/${props.date.year} `}
+      />
+    </Head>
+  );
   if (props.hasError)
     return (
       <div className="center">
+        {pageHeadData}
         <ErrorAlert>
           <h1 className="center">Invalid filter</h1>
         </ErrorAlert>
         <Button link="/events">Show All Events</Button>
       </div>
     );
-
   const filteredEvents = props.events;
 
   if (!filteredEvents || filteredEvents.length === 0)
     return (
       <div className="center">
+        {pageHeadData}
         <ErrorAlert>
           <h1 className="center">No Events Found(</h1>
         </ErrorAlert>
@@ -47,10 +55,7 @@ export default function FilteredEventsPage(props) {
   const date = new Date(props.date.year, props.date.month - 1);
   return (
     <>
-      <Head>
-        <title>Filtered Events</title>
-        <meta description={`All event for ${month}/${year} `} />
-      </Head>
+      {pageHeadData}
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </>
